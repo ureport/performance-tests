@@ -3,6 +3,7 @@ import logging
 import time
 
 from smpp.esme import *
+import sys
 
 class SmscFake(ESME):
 
@@ -19,7 +20,7 @@ class SmscFake(ESME):
             pdu = self._ESME__recv()
             if not pdu: break
             print pdu
-            #logger.info("Received message: %s", self.extract_from_pdu(pdu))
+            logger.info("Received message: %s", self.extract_from_pdu(pdu))
             self.conn.send(pack_pdu(self.__response(pdu)))
         self.conn.close()
 
@@ -88,5 +89,7 @@ class SmscFake(ESME):
 
 
 if __name__ == '__main__':
-    smsc = SmscFake(2777)
+    port = int(sys.argv[1])
+    # original 2777
+    smsc = SmscFake(port)
 

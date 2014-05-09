@@ -70,9 +70,10 @@ def create_message_stats(numbers):
 ### MAIN
 
 # configuration
-logfile = "/vagrant/python-smpp/smpp/smsc.log"
-timeout = 300
-number_of_phone_numbers = 1000
+#logfile = "/vagrant/python-smpp/smpp/smsc.log"
+logfile = "/Users/Kitaka/Development/WorkProjects/all-ureport/provisioning/dev/vagrant/performance-tests/smsc.log"
+timeout = 600
+number_of_phone_numbers = 10000
 number_of_parallel_message_producers = 4
 
 numbers = generate_numbers(number_of_phone_numbers)
